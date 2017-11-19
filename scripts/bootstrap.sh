@@ -13,6 +13,10 @@ sudo yum install -y puppet-agent
 sudo puppet apply /vagrant/puppet/bootstrap.pp
 sudo puppet apply /vagrant/puppet/docker.pp
 
-# TODO add logic based on hostname
-# sudo puppet apply /vagrant/puppet/k8s.pp
-# sudo puppet apply /vagrant/puppet/k8s-worker.pp
+if [ "$HOSTNAME" = master ]; then
+    printf "Configuring master node"
+    sudo puppet apply /vagrant/puppet/k8s.pp
+else
+    printf "Configuring workers"
+    sudo puppet apply /vagrant/puppet/k8s-worker.pp
+fi
