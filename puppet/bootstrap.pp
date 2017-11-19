@@ -14,6 +14,9 @@ package { 'nano':
   ensure  => installed,
 }
 
+package { 'ntp':
+  ensure  => installed,
+} ->
 service { 'ntpd':
   enable => true,
   ensure => 'running',
