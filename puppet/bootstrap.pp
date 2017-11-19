@@ -10,18 +10,11 @@ package { 'bash-completion':
   ensure  => installed,
 }
 
-package { 'jq':
-  ensure  => installed,
-}
-
 package { 'nano':
   ensure  => installed,
 }
 
-package { 'ntp':
-  ensure  => installed,
-}  ->
-service { 'ntp':
+service { 'ntpd':
   enable => true,
   ensure => 'running',
 }
