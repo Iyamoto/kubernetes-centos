@@ -17,4 +17,20 @@ package { 'kubernetes':
 file { '/etc/kubernetes/config':
   ensure => 'file',
   source => '/vagrant/configs/config',
+} ->
+file { '/etc/kubernetes/apiserver':
+  ensure => 'file',
+  source => '/vagrant/configs/apiserver',
+} ->
+service { 'kube-apiserver':
+  enable => true,
+  ensure => 'running',
+} ->
+service { 'kube-controller-manager':
+  enable => true,
+  ensure => 'running',
+} ->
+service { 'kube-scheduler':
+  enable => true,
+  ensure => 'running',
 }
