@@ -1,2 +1,3 @@
-# kubernetes-centos
-CentOS based Kubernetes cluster
+# CentOS based Kubernetes cluster
+
+
