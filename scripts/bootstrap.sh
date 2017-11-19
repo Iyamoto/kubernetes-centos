@@ -16,6 +16,7 @@ sudo puppet apply /vagrant/puppet/docker.pp
 if [ "$HOSTNAME" = master ]; then
     printf "Configuring master node"
     sudo puppet apply /vagrant/puppet/k8s.pp
+    sudo puppet apply /vagrant/puppet/k8s-worker.pp
 else
     printf "Configuring workers"
     sudo puppet apply /vagrant/puppet/k8s-worker.pp

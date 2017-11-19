@@ -38,8 +38,4 @@ Vagrant.configure("2") do |config|
 	worker2.vm.provision :shell, path: "scripts/bootstrap.sh"
   end
 
-  if Vagrant.has_plugin?("vagrant-cachier")
-    config.cache.scope = :box
-  end
-
 end
